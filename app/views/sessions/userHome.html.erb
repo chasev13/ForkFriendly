@@ -1,0 +1,47 @@
+
+	<div id="container">
+	    <div id="topDivHC">
+	      <div id="navigationBar"> 
+	          <%= csrf_meta_tags %>
+	      <div id="logout">
+	          <%= link_to "Log Out", logout_path, method: "delete" %>
+	      </div>
+	      <% if current_user.Admin? %>
+	      	<div id="dataupload">
+	      		<%= link_to "Upload data", product_lines_new_path %>
+	         </div>
+	         <div id="cncrnupload">
+	      		<%= link_to "Upload concerns", health_concerns_new_path %>
+	         </div>
+	        <% end %>
+	    </div>
+	    </div>
+	    
+		<div id="middle">
+			<!--<div id="layer1"></div>-->
+			<div id="layer2">
+				<div id="place"></div>
+	
+				<a href="/health_concerns/concerns">
+				<div id="signup">
+					<p class="divText">Grocery Shopping</p>
+				</div>
+				</a>
+	
+				<div id="place"></div>
+	
+				<a href="#">
+				<div id="signup">
+					<p class="divText">Eating Out</p>
+				</div>
+				</a>
+	
+				<div id="place"></div>
+	
+			</div>
+			<!--<div id="layer3"></div>-->
+	
+	
+		</div>
+		<div id="bottom"></div>
+	</div>

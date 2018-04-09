@@ -1,0 +1,152 @@
+<div id="containerC">
+
+            <div id="topDivC">
+                <h1 class="divText" id="title">Product</h1> 
+                <div id="navigationBar"> 
+                <div id="cart">
+                    <%= link_to "My Cart", final_cart_path %>
+                </div>
+                    <%= csrf_meta_tags %>
+                <div id="logout">
+                    <%= link_to "Log Out", logout_path, method: "delete" %>
+                </div>
+                <div id="productcat">
+                    <%= link_to "Grocery Products", session[:product_category_link] %>
+                </div>
+                <div id="productline">
+                    <%= link_to "Product Line", session[:product_line_link] %>
+                </div>
+                <div id="concernslink">
+                    <%= link_to "Medical Concerns", health_concerns_concerns_path %>
+                </div>
+                </div>
+                <p id="itemincart"><%= flash[:notice_1] %></p>
+                <p id="companyalert"><%= flash[:notice_2] %></p>
+            </div>
+
+            <table id="bottomDivC" align ="center" class="sortable">
+                <% 
+                    temp = params[:product_category]
+                    params[:calorieSort] = true
+                    def changeCalorieSort(truthValue)
+                        if(truthValue == false)
+                            calorieSort = false
+                        else
+                            calorieSort = true
+                        end
+                    end
+                %>
+                <%= form_tag("/cart", method: "get") do %>
+                <thead>
+                    <tr id="labels">
+                        <th id="radioLabel"><p class="labelText"></p></th>
+                        <th id="nameLabel"><p class="otherLabels">Name</p></th>
+                        <!--<div id="caloriesLabel" class="otherLabels"><p class="labelText">Calories</p></div>-->
+                        <th id=caloriesLabel><p class="otherLabels">Calories</p></th>
+                        <th id="saturatedFatLabel" class="otherLabels"><p class="labelText">Saturated Fat</p></th>
+                        <th id="sodiumLabel" class="otherLabels"><p class="labelText">Sodium</p></th>
+                        <th id="carbsLabel" class="otherLabels"><p class="labelText">Carbohydrates</p></th>
+                        <th id="sugarLabel" class="otherLabels"><p class="labelText">Sugar</p></th>
+                        <th id="fiberLabel" class="otherLabels"><p class="labelText">Fiber</p></th>
+                        <th id="proteinLabel" class="otherLabels"><p class="labelText">Protein</p></th>
+                        <%#<%= link_to '/company?product_category=' + temp + '&commit=Search', :onclick => "return changeCalorieSort(false)" do %><%#<div id="organicLabel" class="otherLabels"><p class="labelText">Organic</p></div><%end%>
+                    </tr>
+                </thead>
+
+                    <!--<div id="products">-->
+                   
+                            <%count = 0%>
+                            <% trialarray = {} %>
+                            <% @product.each do |key| %>
+                                <%#
+                                if params[:calorieSort] == true 
+                                %>
+                                    <%#
+                                        
+                                        trialarray[a] = @Calories[a]
+                                        trialarray = trialarray.sort_by {|_key, value| value}.to_h
+                                    %>
+                                <%# end %>
+                            <%# end %>
+                            <%#
+                                trialarray.each_key do |key|
+                            %>
+                                <%if true%>
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                                    <%= radio_button_tag(:compny, key.id.to_s) %>
+                                                    <%= label_tag(:compny, "") %>  
+                                                
+                                            </td>  
+                                        <td id="productName"><%= "#{key.Name}" %></td>
+                                        <td class="productContents"><%= "#{key.Calories}"%></td>
+                                        <td class="productContents"><%= "#{key.Sat_Fat}" %></td>
+                                        <td class="productContents"><%= "#{key.Sodium}" %></td>
+                                        <td class="productContents"><%= "#{key.Carbs}" %></td>
+                                        <td class="productContents"><%= "#{key.Sugar}" %></td>
+                                        <td class="productContents"><%= "#{key.Fiber}" %></td>
+                                        <td class="productContents"><%= "#{key.Protein}" %></p></td>
+                                    </tr> 
+                                    </tbody>
+                                <%else%>
+                                    <div id="productU">
+                                        <div id="radioBtnCover">
+                                                <div id="radioBtn">
+                                                    <%= radio_button_tag(:compny, key.id.to_s) %>
+                                                    <%= label_tag(:compny, "") %>  
+                                                </div>  
+                                            </div>  
+                                        <div id="productName"><p><%= "#{key.Name}" %></p></div>
+                                        <div class="productContents"><p><%= "#{key.Calories}"%></p></div>
+                                        <div class="productContents"><p><%= "#{key.Sat_Fat}" %></p></div>
+                                        <div class="productContents"><p><%= "#{key.Sodium}" %></p></div>
+                                        <div class="productContents"><p><%= "#{key.Carbs}" %></p></div>
+                                        <div class="productContents"><p><%= "#{key.Sugar}" %></p></div>
+                                        <div class="productContents"><p><%= "#{key.Fiber}" %></p></div>
+                                        <div class="productContents"><p><%= "#{key.Protein}" %></p></div>
+                                    </div>
+                                <% end %>
+                                <%count = count + 1%>
+                                
+                            <% end %>
+
+                            <!--
+                    
+                            <% @id.each do |a| %>
+                                <div id="product">
+                                    <div id="productSubContainer">
+                                        <p><b>Product : <%= "#{@Name[a]}" %></b></p>
+                                        <p><b>Company : <%= "#{@Company_Name[a]}" %></b></p>
+                                        <p>
+                                            Serving_Size : <%= "#{@Serving_Size[a]}"%>     Calories : <%= "#{@Calories[a]}"%>     Sat_Fat : <%= "#{@Sat_Fat[a]}" %> Sodium : <%= "#{@Sodium[a]}" %>     Carbs : <%= "#{@Carbs[a]}" %>     Sugar : <%= "#{@Sugar[a]}" %>
+                                        </p>
+                                        <p>
+                                            Fiber : <%= "#{@Fiber[a]}" %>     Protein : <%= "#{@Protein[a]}" %>     Whole_Grain : <%= "#{@Whole_Grain[a]}" %> Gluten_Free : <%= "#{@Gluten_Free[a]}" %>     Organic : <%= "#{@Organic[a]}" %>     Phosphorus : <%= "#{@Phosphorus[a]}" %> 
+                                        </p>
+                                        <p>
+                                            Soy : <%= "#{@Soy[a]}" %>     Potassium : <%= "#{@Potassium[a]}" %>     Milk : <%= "#{@Milk[a]}" %> Egg : <%= "#{@Egg[a]}" %>     Nut : <%= "#{@Nut[a]}" %>     FODMAP : <%= "#{@FODMAP[a]}" %>
+                                        </p>
+                                    </div>
+                                    <div id="radioBtnContainer">
+                                        <div id="radioBtn">
+                                        <%= radio_button_tag(:compny, @product_id[a].to_s) %>
+                                        <%= label_tag(:compny, "") %>
+                                        </div>
+                                    </div>
+                                     
+                                </div> 
+                                
+                                
+                            <% end %>-->
+
+                        </table>
+                        <div id="select"><%= submit_tag("Select") %></div>
+                        
+                    </div>
+                <% end %>
+                
+            
+            
+
+</div>

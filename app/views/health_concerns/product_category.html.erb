@@ -1,0 +1,48 @@
+<div id="containerPC">
+
+			<div id="topDivPC">
+				  <h1 class="divText">Grocery Products</h1> 
+			      <div id="navigationBar"> 
+			      <div id="cart">
+			          <%= link_to "My Cart", final_cart_path %>
+			      </div>
+			          <%= csrf_meta_tags %>
+			      <div id="logout">
+			          <%= link_to "Log Out", logout_path, method: "delete" %>
+			      </div>
+				  <div id="productline">
+                    <%= link_to "Product Categories", session[:product_line_link] %>
+                  </div>
+                  <div id="concernslink">
+          			<%= link_to "Medical Concerns", health_concerns_concerns_path %>
+      			  </div>
+			    </div>
+			    </div>
+
+			<p id="nocategory"><%= flash.now[:notice_4] %></p>
+			<div id="bDiv">
+				<%= form_tag("/company", method: "get") do %>
+				<div id="categories">
+					
+					
+						
+					    <% @arr.each do |a| %>
+					    <div id="category">
+					    	<div id="categoryContainer">
+					    		<div id="categorSubContainer">
+								    <div id="categoryLabel">
+								    	<%= link_to label_tag(:product_category, a.to_s, :class => 'divText'), "/company?product_category=" + a.to_s + "&commit=Search"%>
+									</div>
+								</div>
+					    	</div>
+					    </div> 
+					    <% end %> 
+					<div id="search"><%= submit_tag("Search") %></div>
+				</div>
+				<% end %>
+			</div>
+			
+
+			<!--<div id="bottomDiv"></div>-->
+
+</div>

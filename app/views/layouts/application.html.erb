@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fork Friendly</title>
+    <%= favicon_link_tag 'https://static.wixstatic.com/media/d5a8a5_4258054af705428ebaa2bcfc4c19497c.png/v1/fill/w_182,h_231,al_c,lg_1/d5a8a5_4258054af705428ebaa2bcfc4c19497c.png' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script> 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.30.1/js/jquery.tablesorter.min.js"></script> 
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

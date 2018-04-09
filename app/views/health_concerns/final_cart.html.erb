@@ -1,0 +1,57 @@
+
+<div id="containerFC">
+
+			<div id="topDivFC">
+				  <h1 class="divText">Shopping Cart</h1> 
+			      <div id="navigationBar"> 
+			      <div id="cart">
+			          <%= link_to "My Cart", final_cart_path %>
+			      </div>
+			          <%= csrf_meta_tags %>
+			      <div id="logout">
+			          <%= link_to "Log Out", logout_path, method: "delete" %>
+			      </div>
+				  <div id="productcat">
+                    <%= link_to "Grocery Products", session[:product_category_link] %>
+                  </div>
+                  <div id="productline">
+                    <%= link_to "Product Categories", session[:product_line_link] %>
+                  </div>
+                  <div id="productWhat">
+                    <%= link_to "Products", session[:product_link] %>
+                  </div>
+                  <div id="concernslink">
+                      <%= link_to "Medical Concerns", health_concerns_concerns_path %>
+                  </div>
+                
+			    </div>
+		    </div>
+
+
+        <div id="bottomDivFC">
+            <%= form_tag("/modify_cart", method: "get") do %>
+                <div id="products">
+                
+                    <% @length.each do |a| %>
+
+                        <div id="product">
+                            <div id="productSubContainerF">
+                                <p><b>Product</b> : <%= "#{@product[a]}" %></p>
+                                <p><b>Company</b> : <%= "#{@company[a]}" %></p>
+                            </div>
+
+                            <div id="radioBtnAndLable">
+                                <%= radio_button_tag(:compny, @product_id[a]) %>
+                                <%= label_tag(:compny, "Remove", :class=>'remove') %>
+                            </div>
+
+                        </div>
+                    <% end %>
+                    
+                    <div="select" id="updateCart"><%= submit_tag("Update Cart") %></div>
+                    <div id="spaceBelow"></div>
+                </div>
+            <% end %>
+        </div>
+
+</div>

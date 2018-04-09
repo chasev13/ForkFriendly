@@ -1,0 +1,227 @@
+
+
+<div id="containerHC">
+
+    <div id="topDivHC">
+      <h1 class="divText" class="jumbotron">Select Your Primary Medical Concern</h1>
+      <div id="navigationBar"> 
+      <div id="cart">
+          <%= link_to "My Cart", final_cart_path %>
+      </div>
+          <%= csrf_meta_tags %>
+      <div id="logout">
+          <%= link_to "Log Out", logout_path, method: "delete" %>
+      </div>
+    </div>
+    </div>
+
+    <div id="middleDivHC">
+              <p id="selconcerns"><%= flash.now[:notice_3] %></p>
+              <%= form_for :concerns do |f| %>
+
+                  <div id="centerOfPageContainerHC">
+
+                    <div id="topConcerns">
+                      
+                      <!--URL "/health_concerns/concerns" goes to URL "/product_line-->
+                      
+                      <div id="outerDiv">
+                        
+                          <div id="picOuterDiv">
+                            <%= f.label :sodium_friendly, "...:", class: "label" do %>
+                            <%#<div id="picDiv"> <img src=<%=image_url('concerns/salt.png')%><%# alt="..." id="image">  </div>%>
+                            <%= link_to image_tag("concerns/salt.png"), "/product_line", params: {:concerns => {:sodium_friendly => 1}} %>
+                            
+                          </div>
+
+                          <div id="labelDiv">
+                            <%#<%= f.check_box :sodium_friendly, class: "checkbox", id: "ck"%>
+                            <%= label_tag(:sodium_friendly, "Sodium Friendly") %>
+                            <%#<h5>Blood Pressure<br>Friendly</h5>%>
+                          </div>
+                          <% end %>
+                      </div>
+                  
+
+
+                      <div id="outerDiv">
+                        
+                          <div id="picOuterDiv">
+                            <%= f.label :heart_healthy, "...:", class: "label" do %> <!--class: "col-xs-12 control-label btn btn-concerns img-check"-->
+                            <%# <div id="picDiv"><img src=<%=image_url('concerns/Droplet.png')#><%# alt="..." class="img-responsive"></div> %>
+                            <%= link_to image_tag("concerns/Droplet.png"), "/product_line", params: {:concerns => {:heart_healthy => 1}} %>
+                          </div>
+
+                          <div id="labelDiv">
+                            <%#<%= f.check_box :heart_healthy, class: "checkbox", id: "ck" %><%#  <!-- class: "form-control"-->%>
+                            <%#<h5>Cholesterol<br>Friendly</h5>%>
+                            <%= label_tag(:heart_healthy, "Cholesterol Friendly") %>
+                          </div>
+                          <% end %>
+                      </div>
+                  
+
+
+
+                      <div id="outerDiv">
+                          <div id="picOuterDiv">
+                            <%= f.label :calorie_friendly, "...:", class: "label" do %>
+                            <%#<div id="picDiv"><img src=<%=image_url('concerns/fork.png')%><%# alt="..." class="img-responsive"></div>%>
+                            <%= link_to image_tag("concerns/fork.png"), "/product_line", params: {:concerns => {:calorie_friendly => 1}} %>
+                          </div>
+
+                          <div id="labelDiv">
+                            <%#<%= f.check_box :calorie_friendly, class: "checkbox", id: "ck" %>
+                            <%= label_tag(:calorie_friendly, "Calorie Friendly") %>
+                            <%#<h5>Calorie<br>Friendly</h5>%>
+                          </div>
+                          <% end %>
+                      </div>
+                  
+
+
+                      <div id="outerDiv">
+                        
+                          <div id="picOuterDiv">
+                            <%= f.label :carb_friendly, "...:", class: "label" do %>
+                            <%#<div id="picDiv"><img src=<%=image_url('concerns/fodmap.png')%><%# alt="..." class="img-responsive"></div>%>
+                            <%= link_to image_tag("concerns/fodmap.png"), "/product_line", params: {:concerns => {:carb_friendly => 1}} %>
+                          </div>
+
+                          <div id="labelDiv">
+                            <%#<%= f.check_box :carb_friendly, class: "checkbox", id: "ck" %>
+                            <%= label_tag(:carb_friendly, "Carb Friendly") %>
+                            <%#<h5>IBS<br>Friendly</h5>%>
+                          </div>
+                          <% end %>
+                      </div>
+                  
+
+                      <div id="outerDiv">
+                        
+                          <div id="picOuterDiv">
+                            <%= f.label :kidney_friendly, "...:", class: "label" do %>
+                            <%#<div id="picDiv"><img src=<%=image_url('concerns/renaldisease.png')%><%# alt="..." class="img-responsive"></div>%>
+                            <%= link_to image_tag("concerns/renaldisease.png"), "/product_line", params: {:concerns => {:kidney_friendly => 1}} %>
+                          </div>
+                          <div id="labelDiv">
+                            <%#<%= f.check_box :kidney_friendly, class: "checkbox", id: "ck" %>
+                            <%= label_tag(:kidney_friendly, "Kidney Friendly") %>
+                            <%#<h5>Kidney<br>Friendly</h5>%>
+                          </div>
+                        <% end %>
+                      </div>
+
+
+                      <div id="outerDiv">
+                        
+                          <div id="picOuterDiv">
+                            <%= f.label :diabetes_friendly, "...:", class: "label" do %>
+                            <%#<div id="picDiv"><img src=<%=image_url('concerns/Down.png')%><%# alt="..." class="img-responsive"></div>%>
+                            <%= link_to image_tag("concerns/Down.png"), "/product_line", params: {:concerns => {:diabetes_friendly => 1}} %>
+                          </div>
+                          <div id="labelDiv">
+                            <%#<%= f.check_box :diabetes_friendly, class: "checkbox", id: "ck" %>
+                            <%= label_tag(:diabetes_friendly, "Diabetes Friendly") %>
+                            <%#<h5>Diabetes<br>Friendly</h5>%>
+                          </div>
+                        <% end %>
+                      </div>
+
+                    </div>
+
+
+
+                    <div id="bottomConcerns">
+
+                      <div id="outerDiv">
+                        
+                          <div id="picOuterDiv">
+                            <%= f.label :gluten_free, "...:", class: "label" do %>
+                            <%#<div id="picDiv"><img src=<%=image_url('concerns/glutenfree.png')%><%# alt="..." class="img-responsive"></div>%>
+                            <%= link_to image_tag("concerns/glutenfree.png"), "/product_line", params: {:concerns => {:gluten_free => 1}} %>
+                          </div>
+                          <div id="labelDiv">
+                            <%#<%= f.check_box :gluten_free, class: "checkbox", id: "ck" %>
+                            <%= label_tag(:gluten_free, "Gluten Free") %>
+                            <%#<h5>Gluten<br>Free</h5>%>
+                          </div>
+                        <% end %>
+                      </div>
+
+                      <div id="outerDiv">
+                        
+                          <div id="picOuterDiv">
+                            <%= f.label :soy_free, "...:", class: "label" do %>
+                            <%#<div id="picDiv"><img src=<%=image_url('concerns/soyfree.png')%><%# alt="..." class="img-responsive"></div>%>
+                            <%= link_to image_tag("concerns/soyfree.png"), "/product_line", params: {:concerns => {:soy_free => 1}} %>
+                          </div>
+                          <div id="labelDiv">
+                            <%#<%= f.check_box :soy_free, class: "checkbox", id: "ck" %>
+                            <%= label_tag(:soy_free, "Soy Free") %>
+                            <%#<h5>Soy<br>Free</h5>%>
+                          </div>
+                        <% end %>
+                      </div>
+
+                        <div id="outerDiv">
+                        
+                          <div id="picOuterDiv">
+                            <%= f.label :dairy_free, "...:", class: "label" do %>
+                            <%#<div id="picDiv"><img src=<%=image_url('concerns/milkfree.png')%><%# alt="..." class="img-responsive"></div>%>
+                            <%= link_to image_tag("concerns/milkfree.png"), "/product_line", params: {:concerns => {:dairy_free => 1}} %>
+                          </div>
+                          <div id="labelDiv">
+                            <%#<%= f.check_box :dairy_free, class: "checkbox", id: "ck" %>
+                            <%= label_tag(:dairy_free, "Diary Free") %>
+                            <%#<h5>Dairy<br>Free</h5>%>
+                          </div>
+                        <% end %>
+                      </div>
+
+                      <div id="outerDiv">
+                        
+                          <div id="picOuterDiv">
+                            <%= f.label :egg_free, "...:", class: "label" do %>
+                            <%#<div id="picDiv"><img src=<%=image_url('concerns/eggfree.png')%><%# alt="..." class="img-responsive"></div>%>
+                            <%= link_to image_tag("concerns/eggfree.png"), "/product_line", params: {:concerns => {:egg_free => 1}} %>
+                          </div>
+                          <div id="labelDiv">
+                            <%#<%= f.check_box :egg_free, class: "checkbox", id: "ck" %>
+                            <%= label_tag(:egg_free, "Egg Free") %>
+                            <%#<h5>Egg<br>Free</h5>%>
+                          </div>
+                        <% end %>
+                      </div>
+
+                      <div id="outerDiv">
+                        
+                          <div id="picOuterDiv">
+                            <%= f.label :nut_free, "...:", class: "label" do %>
+                            <%#<div id="picDiv"><img src=<%=image_url('concerns/nutfree.png')%><%# alt="..." class="img-responsive"></div>%>
+                            <%= link_to image_tag("concerns/nutfree.png"), "/product_line", params: {:concerns => {:nut_free => 1}} %>
+                          </div>
+                          <div id="labelDiv">
+                            <%#<%= f.check_box :nut_free, class: "checkbox", id: "ck" %>
+                            <%= label_tag(:nut_free, "Nut Free") %>
+                            <%#<h5>Nut<br>Free</h5>%>
+                          </div>
+                        <% end %>
+                      </div>
+
+                    <%#</div>%>
+
+                    <%#<div id="startShopping">
+                      <%= f.submit 'Start Shopping', :class => 'btn btn-primary center col-xs-2 col-xs-offset-5 margin-tb-t', :id => 'submitButton' %>
+                
+                    <%#</div>%>
+
+                  <%#</div>%>
+              <% end %>
+
+
+    </div>
+
+
+    <div id="bottomDivHC"></div>
+</div>

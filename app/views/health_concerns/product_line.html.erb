@@ -1,0 +1,124 @@
+<div id="containerPL">
+
+	<div id="topDivPL">
+      <h1 class="divText">Start Shopping</h1>
+      <div id="navigationBar"> 
+      <div id="cart">
+          <%= link_to "My Cart", final_cart_path %>
+      </div>
+          <%= csrf_meta_tags %>
+      <div id="logout">
+          <%= link_to "Log Out", logout_path, method: "delete" %>
+      </div>
+      <div id="concernslink">
+          <%= link_to "Medical Concerns", health_concerns_concerns_path %>
+      </div>
+    </div>
+    </div>
+
+
+    <div id="middleDivPL">
+		<p id="notice"><%= notice %></p>
+		<%= form_tag("/product_category", method: "get") do %>
+
+			<div id="centerOfPageContainerPL">
+
+				<div id="outerDivPL">
+					<div class="picDivPL" id="breadDiv">
+						<%= link_to image_tag("bakery.png"), "/product_category?&product_line=bread&commit=Search/" %>
+					</div>
+					<div id="labelDivPL">
+						<%= label_tag(:product_line_bread, "Bread") %>
+					</div>
+				</div>
+
+				<div id="outerDivPL">
+					<div class="picDivPL" id="snacksDiv">
+						<%= link_to image_tag("snacks.png"), "/product_category?&product_line=Snacks&commit=Search/" %>
+					</div>
+					<div id="labelDivPL">
+						<%= label_tag(:product_line_snacks, "Snacks") %>
+					</div>
+				</div>
+
+				<div id="outerDivPL">
+					<div class="picDivPL" id="frozenDiv">
+						<%= link_to image_tag("_frozen_food.png"), "/product_category?&product_line=frozen&commit=Search/" %>
+					</div>
+					<div id="labelDivPL">
+						<%= label_tag(:product_line_frozen, "Frozen Items") %>
+					</div>
+				</div>
+
+				<div id="outerDivPL">
+					<div class="picDivPL" id="condimentsDiv">
+						<%= link_to image_tag("_condiment.png"), "/product_category?&product_line=Condiments&commit=Search/" %>
+					</div>
+					<div id="labelDivPL">
+						<%= label_tag(:product_line_condiments, "Condiments") %>
+					</div>
+				</div>
+				
+				<div id="outerDivPL">
+					<div class="picDivPL" id="MeatsDiv">
+						<%= link_to image_tag("_meat.png"), "/product_category?&product_line=Meat&commit=Search/" %>
+					</div>
+					<div id="labelDivPL">
+						<%= label_tag(:product_line_meats, "Meats") %>
+					</div>
+				</div>
+
+				<div id="outerDivPL">
+					<div class="picDivPL" id="dairyDiv">
+						<%= link_to image_tag("milk.png"), "/product_category?&product_line=Dairy&commit=Search/" %>
+					</div>
+					<div id="labelDivPL">
+						<%= label_tag(:product_line_dairy, "Dairy") %>
+					</div>
+				</div>
+
+				<div id="outerDivPL">
+					<div class="picDivPL" id="nutsDiv">
+						<%= link_to image_tag("_nuts_and_seeds.png"), "/product_category?&product_line=nuts&commit=Search/" %>
+					</div>
+					<div id="labelDivPL">
+						<%= label_tag(:product_line_nuts, "Nuts & Bread") %>
+					</div>
+				</div>
+
+				<div id="outerDivPL">
+					<div class="picDivPL" id="mealsDiv">
+						<%= link_to image_tag("_meals_prepared.png"), "/product_category?&product_line=meals&commit=Search/" %>
+					</div>
+					<div id="labelDivPL">
+						<%= label_tag(:product_line_meals, "Meals Prepared") %>
+					</div>
+				</div>
+
+				<div id="outerDivPL">
+					<div class="picDivPL" id="drinksDiv">
+						<%= link_to image_tag("_drinks.png"), "/product_category?&product_line=drinks&commit=Search/" %>
+					</div>
+					<div id="labelDivPL">
+						<%= label_tag(:product_line_drinks, "Drinks") %>
+					</div>
+				</div>
+
+				<div id="outerDivPL">
+					<div class="picDivPL" id="produceDiv">
+						<%= link_to image_tag("_fruit.png"), "/product_category?&product_line=produce&commit=Search/" %>
+					</div>
+					<div id="labelDivPL">
+						<%= label_tag(:product_line_produce, "Produce") %>
+					</div>
+				</div>
+
+			
+
+			</div>
+		<% end %>
+
+	</div>
+
+	<div id="bottomDivPL">	</div>
+</div>
